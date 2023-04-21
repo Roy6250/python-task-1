@@ -13,4 +13,4 @@ both lists in one single dict.
 - You need to push the updated code in a Github repository in your own account and submit the link to the repository in [this form](https://forms.gle/6i5wrfDwr661JXY79).
 
 # Solution
-- Please check the updated main file
+- Please check the updated `main.py` file
