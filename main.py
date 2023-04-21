@@ -16,17 +16,40 @@ list_2 = [
     },
 ]
 
-
 def merge_lists(list_1, list_2) -> list:
-    """
-    Complete this function, by merging the information from list_1 and list_2
-    to create a new list, which has all the information about each student from
-    both lists in one single dict.
 
-    - Both lists are unsorted
-    - Both lists can have missing values (for ex list_2 has missing id=2)
-    """
-    # return list_3
+    list_1=sorted(list_1, key=lambda i: i['id'])
+    list_2=sorted(list_2, key=lambda i: i['id'])
+    list_3=[]
+    
+    i=0 # pointer for list_1
+    j=0 # pointer for list_2
+
+    while(i<len(list_1) and j<len(list_2)):
+      # merging the same "id"s
+      if(list_1[i]["id"]==list_2[j]["id"]):
+        list_3.append(list_1[i]|list_2[j])
+        i+=1
+        j+=1
+      #Adding the smaller "id"
+      elif(list_1[i]["id"]>list_2[j]["id"]):
+        list_3.append(list_2[j])
+        j+=1
+      elif(list_1[i]["id"]<list_2[j]["id"]):
+        list_3.append(list_1[i])
+        i+=1
+
+    # for remaining elements
+    while(i<len(list_1)):
+        list_3.append(list_1[i])
+        i+=1
+
+    while(j<len(list_2)):
+        list_3.append(list_2[j])
+        j+=1   
+
+    return list_3
 
 
 list_3 = merge_lists(list_1, list_2)
+print(list_3)
